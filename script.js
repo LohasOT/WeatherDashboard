@@ -1,5 +1,7 @@
-var weatherApiRootUrl = 'https://api.openweathermap.org';
-var weatherApiKey = 'd91f911bcf2c0f925fb6535547a5ddc9';
+// var weatherApiRootUrl = 'https://api.openweathermap.org';
+// var weatherApiKey = 'd91f911bcf2c0f925fb6535547a5ddc9';
+
+
 
 document.getElementById('search').addEventListener('click', event => {
   event.preventDefault()
@@ -69,7 +71,7 @@ document.getElementById('search').addEventListener('click', event => {
 
           const currentElem = document.createElement('div')
           currentElem.innerHTML = `
-          <div class= "currentday"
+          <div class= "currentday">
             <h3>Date:${current.date}</h3>
             <h3>City: ${city} <img src="http://openweathermap.org/img/w/${current.icon}.png" alt="icon"></h3>
             <h3>Temperature: ${current.temp}</h3>
@@ -79,11 +81,21 @@ document.getElementById('search').addEventListener('click', event => {
           </div>
         `
           document.getElementById('today').append(currentElem)
+          
+          let forecasts = [day1, day2, day3, day4, day5]
 
+          document.getElementById('forecast').innerHTML = ''
+          forecasts.forEach(() => {
+            const forecastElem = document.createElement('div')
+            forecastElem.innerHTML = `
+            <h3>date: ${weather.list[8].dt_txt} <img src="http://openweathermap.org/img/w/${current.icon}.png" alt="icon"></h3>
+            <h3>temp: ${weather.list[8].main.temp}</h3>
+            <h3>humid: ${weather.list[8].main.humidity}<h3>
+            <h3>wind: ${weather.list[8].wind.speed}</h3>
+        `
+            document.getElementById('forecast').append(forecastElem)
+          })
         })
+
     })
 })
-
-
-  // document.getElementById('search').addEventListener('click', event => {
-  //   event.preventDefault()

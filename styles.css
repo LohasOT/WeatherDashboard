@@ -9,6 +9,7 @@ header {
 h2 {
   background-color: #9DBAD1;
 }
+
 .btn {
   background-color: #DCE4EB;
   text-align: center;
@@ -29,8 +30,7 @@ hr {
   height: 0;
   overflow: visible;
 }
-
 .currentday {
-  background-color: #F2F4FF;
-  max-width: 20%;
+  background-color: #93ACB5;
+  max-width: 30%;
 }
