@@ -70,8 +70,8 @@ document.getElementById('search').addEventListener('click', event => {
           const currentElem = document.createElement('div')
           currentElem.innerHTML = `
 
-        City: ${city} Date:${current.date} Temperature: ${current.temp} Humidity: ${current.humid} Wind: ${current.wind} ${current.icon} UVI: ${uvi}
-
+        City: ${city} Date:${current.date} Temperature: ${current.temp} Humidity: ${current.humid} Wind: ${current.wind} UVI: ${uvi}
+        <img src="http://openweathermap.org/img/w/${current.icon}.png" alt="icon">
         `
           document.getElementById('today').append(currentElem)
 
