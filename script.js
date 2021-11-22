@@ -1,5 +1,5 @@
-// var weatherApiRootUrl = 'https://api.openweathermap.org';
-// var weatherApiKey = 'd91f911bcf2c0f925fb6535547a5ddc9';
+var weatherApiRootUrl = 'https://api.openweathermap.org';
+var weatherApiKey = 'd91f911bcf2c0f925fb6535547a5ddc9';
 
 document.getElementById('search').addEventListener('click', event => {
   event.preventDefault()
@@ -69,9 +69,14 @@ document.getElementById('search').addEventListener('click', event => {
 
           const currentElem = document.createElement('div')
           currentElem.innerHTML = `
-
-        City: ${city} Date:${current.date} Temperature: ${current.temp} Humidity: ${current.humid} Wind: ${current.wind} UVI: ${uvi}
-        <img src="http://openweathermap.org/img/w/${current.icon}.png" alt="icon">
+          <div class= "currentday"
+            <h3>Date:${current.date}</h3>
+            <h3>City: ${city} <img src="http://openweathermap.org/img/w/${current.icon}.png" alt="icon"></h3>
+            <h3>Temperature: ${current.temp}</h3>
+            <h3>Humidity: ${current.humid}</h3>
+            <h3>Wind: ${current.wind}</h3>
+            <h3>UVI: ${uvi}</h3>
+          </div>
         `
           document.getElementById('today').append(currentElem)
 

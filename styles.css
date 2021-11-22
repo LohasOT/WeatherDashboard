@@ -23,8 +23,14 @@ h2 {
   color: #1a1a1a;
   transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
+
 hr {
   box-sizing: content-box;
   height: 0;
   overflow: visible;
+}
+
+.currentday {
+  background-color: #F2F4FF;
+  max-width: 20%;
 }
