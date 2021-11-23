@@ -100,7 +100,7 @@ document.getElementById('search').addEventListener('click', event => {
               </div>
             </div>
         `
-            document.getElementById('forecast').append(forecastElem)
+            document.getElementById('future').append(forecastElem)
           })
         })
 
