@@ -26,6 +26,7 @@ document.getElementById('search').addEventListener('click', event => {
       const longtitude = weather.city.coord.lon
 
       axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longtitude}&units=imperial&appid=d91f911bcf2c0f925fb6535547a5ddc9`)
+
         .then(resp => {
           let today = resp.data
           const uvi = resp.data.current.uvi
@@ -76,7 +77,7 @@ document.getElementById('search').addEventListener('click', event => {
             icon: weather.list[32].weather[0].icon
           }
           console.log(resp.data)
-
+          document.getElementById('today').innerHTML = ''
           const currentElem = document.createElement('div')
           currentElem.innerHTML = `
           <div class= "currentday">
