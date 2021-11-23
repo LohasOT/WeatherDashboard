@@ -85,10 +85,10 @@ document.getElementById('search').addEventListener('click', event => {
 
           document.getElementById('forecast').innerHTML = ''
           forecasts.forEach(day => {
-            const forecastElem = document.createElement('div')
-            forecastElem.className = 'col-md-3 mb-3'
-            forecastElem.innerHTML = `
-              <div class="card" style="width: 10rem;">
+
+          document.getElementById('forecast').innerHTML+=`
+            
+              <div class="card" style="width: 15rem";>
                   <img src="http://openweathermap.org/img/w/${day.icon}.png" class="card-img-top" alt="icon">
                   <div class="card-body">
                   <h5 class="card-title">${day.date}</h5>
@@ -96,11 +96,10 @@ document.getElementById('search').addEventListener('click', event => {
                   <h3>temp: ${day.temp}</h3>
                   <h3>humid: ${day.humid}<h3>
                   <h3>wind: ${day.wind}</h3></p>
-                  </div>
               </div>
             </div>
         `
-            document.getElementById('future').append(forecastElem)
+
           })
         })
 
