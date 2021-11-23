@@ -44,3 +44,22 @@ You are required to submit the following for review:
 
 - - -
 © 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
+
+
+### Name
+
+Weather Dashboard
+
+### Description
+
+This is a weather dashboard where you can search for a city, and it will show the current weather and the next 5 days of that city.
+
+### Link to deployed REPO
+
+https://lohasot.github.io/WeatherDashboard/
+
+### Visuals
+
+<img src="https://user-images.githubusercontent.com/91640571/143083638-b6f0015c-ff81-4e87-bf51-853f85589628.jpg">
+
+<img src="https://user-images.githubusercontent.com/91640571/143083640-b33f34f6-4948-4c73-973d-0c234a4205c7.jpg">

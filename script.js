@@ -3,7 +3,7 @@ let history = JSON.parse(localStorage.getItem('storedHistory')) || []
 for (let i = 0; i < history.length; i++) {
   let historyBox = document.getElementById('history')
   historyBox.innerHTML += `
-  <button> ${history[i]} </button>
+ ${history[i]}
 `
 }
 // document.addEventListener 
