@@ -1,11 +1,20 @@
-// var weatherApiRootUrl = 'https://api.openweathermap.org';
-// var weatherApiKey = 'd91f911bcf2c0f925fb6535547a5ddc9';
+let history = JSON.parse(localStorage.getItem('storedHistory')) || []
 
-
-
+for (let i = 0; i < history.length; i++) {
+  let historyBox = document.getElementById('history')
+  historyBox.innerHTML += `
+  <button> ${history[i]} </button>
+`
+}
+// document.addEventListener 
 document.getElementById('search').addEventListener('click', event => {
   event.preventDefault()
+
   const cityName = document.getElementById('searchCity').value
+
+  history.push(cityName)
+
+  localStorage.setItem('storedHistory', JSON.stringify(history))
 
   axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&units=imperial&appid=d91f911bcf2c0f925fb6535547a5ddc9`)
     .then(res => {
@@ -86,7 +95,7 @@ document.getElementById('search').addEventListener('click', event => {
           document.getElementById('forecast').innerHTML = ''
           forecasts.forEach(day => {
 
-          document.getElementById('forecast').innerHTML+=`
+            document.getElementById('forecast').innerHTML += `
             
               <div class="card" style="width: 15rem";>
                   <img src="http://openweathermap.org/img/w/${day.icon}.png" class="card-img-top" alt="icon">
@@ -99,7 +108,6 @@ document.getElementById('search').addEventListener('click', event => {
               </div>
             </div>
         `
-
           })
         })
 
