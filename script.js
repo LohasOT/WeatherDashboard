@@ -25,7 +25,6 @@ document.getElementById('history').addEventListener('click', event => {
     .then(res => {
       const weather = res.data
 
-      console.log(res.data)
 
       const latitude = weather.city.coord.lat
       const longtitude = weather.city.coord.lon
@@ -81,7 +80,7 @@ document.getElementById('history').addEventListener('click', event => {
             wind: weather.list[32].wind.speed,
             icon: weather.list[32].weather[0].icon
           }
-          console.log(resp.data)
+
           document.getElementById('today').innerHTML = ''
           const currentElem = document.createElement('div')
           currentElem.innerHTML = `
@@ -142,8 +141,6 @@ document.getElementById('search').addEventListener('click', event => {
     .then(res => {
       const weather = res.data
 
-      console.log(res.data)
-
       const latitude = weather.city.coord.lat
       const longtitude = weather.city.coord.lon
 
@@ -198,7 +195,7 @@ document.getElementById('search').addEventListener('click', event => {
             wind: weather.list[32].wind.speed,
             icon: weather.list[32].weather[0].icon
           }
-          console.log(resp.data)
+
           document.getElementById('today').innerHTML = ''
           const currentElem = document.createElement('div')
           currentElem.innerHTML = `
