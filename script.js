@@ -1,3 +1,4 @@
+// creating local storage
 let history = JSON.parse(localStorage.getItem('storedHistory')) || []
 console.log(history)
 for (let i = 0; i < history.length; i++) {
@@ -6,7 +7,7 @@ for (let i = 0; i < history.length; i++) {
   cityButton.innerText = history[i]
   historyBox.appendChild(cityButton)
 }
-
+// get information from previous search results
 document.getElementById('history').addEventListener('click', event => {
   const cityName = event.target.innerText
   let foundInArray = false
@@ -20,7 +21,7 @@ document.getElementById('history').addEventListener('click', event => {
   }
 
   localStorage.setItem('storedHistory', JSON.stringify(history))
-
+// getting weather data, lat and longtitude
   axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&units=imperial&appid=d91f911bcf2c0f925fb6535547a5ddc9`)
     .then(res => {
       const weather = res.data
@@ -28,14 +29,16 @@ document.getElementById('history').addEventListener('click', event => {
 
       const latitude = weather.city.coord.lat
       const longtitude = weather.city.coord.lon
-
+// getting uvi data
       axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longtitude}&units=imperial&appid=d91f911bcf2c0f925fb6535547a5ddc9`)
+
+// making arrays 
 
         .then(resp => {
           let today = resp.data
           const uvi = resp.data.current.uvi
           const city = weather.city.name
-
+// today's weather
           let current = {
             temp: today.current.temp,
             humid: today.current.humidity,
@@ -43,7 +46,7 @@ document.getElementById('history').addEventListener('click', event => {
             icon: today.current.weather[0].icon,
             uvi: uvi
           }
-
+// next 5 days
           let day1 = {
             date: weather.list[0].dt_txt.split(" ")[0],
             temp: weather.list[0].main.temp,
@@ -80,7 +83,7 @@ document.getElementById('history').addEventListener('click', event => {
             wind: weather.list[32].wind.speed,
             icon: weather.list[32].weather[0].icon
           }
-
+// append to html
           document.getElementById('today').innerHTML = ''
           const currentElem = document.createElement('div')
           currentElem.innerHTML = `
@@ -93,6 +96,7 @@ document.getElementById('history').addEventListener('click', event => {
             <h3>UVI: ${uvi}</h3>
           </div>
         `
+// append to html
           document.getElementById('today').append(currentElem)
 
           let forecasts = [day1, day2, day3, day4, day5]
@@ -119,7 +123,7 @@ document.getElementById('history').addEventListener('click', event => {
     })
 })
 
-
+// when click on the search button
 document.getElementById('search').addEventListener('click', event => {
   event.preventDefault()
 
@@ -136,21 +140,21 @@ document.getElementById('search').addEventListener('click', event => {
   }
 
   localStorage.setItem('storedHistory', JSON.stringify(history))
-
+// getting weather informations
   axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&units=imperial&appid=d91f911bcf2c0f925fb6535547a5ddc9`)
     .then(res => {
       const weather = res.data
 
       const latitude = weather.city.coord.lat
       const longtitude = weather.city.coord.lon
-
+// getting uvi
       axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longtitude}&units=imperial&appid=d91f911bcf2c0f925fb6535547a5ddc9`)
-
+// repeating the array
         .then(resp => {
           let today = resp.data
           const uvi = resp.data.current.uvi
           const city = weather.city.name
-
+// today weather
           let current = {
             temp: today.current.temp,
             humid: today.current.humidity,
@@ -158,7 +162,7 @@ document.getElementById('search').addEventListener('click', event => {
             icon: today.current.weather[0].icon,
             uvi: uvi
           }
-
+// next 5 days
           let day1 = {
             date: weather.list[0].dt_txt.split(" ")[0],
             temp: weather.list[0].main.temp,
@@ -195,7 +199,7 @@ document.getElementById('search').addEventListener('click', event => {
             wind: weather.list[32].wind.speed,
             icon: weather.list[32].weather[0].icon
           }
-
+          // append to html
           document.getElementById('today').innerHTML = ''
           const currentElem = document.createElement('div')
           currentElem.innerHTML = `
@@ -208,6 +212,7 @@ document.getElementById('search').addEventListener('click', event => {
             <h3>UVI: ${uvi}</h3>
           </div>
         `
+        // append to html
           document.getElementById('today').append(currentElem)
 
           let forecasts = [day1, day2, day3, day4, day5]
