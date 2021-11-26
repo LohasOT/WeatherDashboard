@@ -46,7 +46,7 @@ document.getElementById('history').addEventListener('click', event => {
           }
 
           let day1 = {
-            date: weather.list[0].dt_txt,
+            date: weather.list[0].dt_txt.split(" ")[0],
             temp: weather.list[0].main.temp,
             humid: weather.list[0].main.humidity,
             wind: weather.list[0].wind.speed,
@@ -54,28 +54,28 @@ document.getElementById('history').addEventListener('click', event => {
           }
 
           let day2 = {
-            date: weather.list[8].dt_txt,
+            date: weather.list[8].dt_txt.split(" ")[0],
             temp: weather.list[8].main.temp,
             humid: weather.list[8].main.humidity,
             wind: weather.list[8].wind.speed,
             icon: weather.list[8].weather[0].icon
           }
           let day3 = {
-            date: weather.list[16].dt_txt,
+            date: weather.list[16].dt_txt.split(" ")[0],
             temp: weather.list[16].main.temp,
             humid: weather.list[16].main.humidity,
             wind: weather.list[16].wind.speed,
             icon: weather.list[16].weather[0].icon
           }
           let day4 = {
-            date: weather.list[24].dt_txt,
+            date: weather.list[24].dt_txt.split(" ")[0],
             temp: weather.list[24].main.temp,
             humid: weather.list[24].main.humidity,
             wind: weather.list[24].wind.speed,
             icon: weather.list[24].weather[0].icon
           }
           let day5 = {
-            date: weather.list[32].dt_txt,
+            date: weather.list[32].dt_txt.split(" ")[0],
             temp: weather.list[32].main.temp,
             humid: weather.list[32].main.humidity,
             wind: weather.list[32].wind.speed,
@@ -163,7 +163,7 @@ document.getElementById('search').addEventListener('click', event => {
           }
 
           let day1 = {
-            date: weather.list[0].dt_txt,
+            date: weather.list[0].dt_txt.split(" ")[0],
             temp: weather.list[0].main.temp,
             humid: weather.list[0].main.humidity,
             wind: weather.list[0].wind.speed,
@@ -171,28 +171,28 @@ document.getElementById('search').addEventListener('click', event => {
           }
 
           let day2 = {
-            date: weather.list[8].dt_txt,
+            date: weather.list[8].dt_txt.split(" ")[0],
             temp: weather.list[8].main.temp,
             humid: weather.list[8].main.humidity,
             wind: weather.list[8].wind.speed,
             icon: weather.list[8].weather[0].icon
           }
           let day3 = {
-            date: weather.list[16].dt_txt,
+            date: weather.list[16].dt_txt.split(" ")[0],
             temp: weather.list[16].main.temp,
             humid: weather.list[16].main.humidity,
             wind: weather.list[16].wind.speed,
             icon: weather.list[16].weather[0].icon
           }
           let day4 = {
-            date: weather.list[24].dt_txt,
+            date: weather.list[24].dt_txt.split(" ")[0],
             temp: weather.list[24].main.temp,
             humid: weather.list[24].main.humidity,
             wind: weather.list[24].wind.speed,
             icon: weather.list[24].weather[0].icon
           }
           let day5 = {
-            date: weather.list[32].dt_txt,
+            date: weather.list[32].dt_txt.split(" ")[0],
             temp: weather.list[32].main.temp,
             humid: weather.list[32].main.humidity,
             wind: weather.list[32].wind.speed,
